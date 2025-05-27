@@ -1,20 +1,55 @@
 {
   "name": "mayavi",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "A lightweight proof-of-work challenge system to protect against AI crawlers and bots. Built with TypeScript and React.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build-package": "tsc --project tsconfig.package.json",
+    "prepublishOnly": "npm run build-package",
+    "test": "jest"
+  },
+  "keywords": [
+    "proof-of-work",
+    "bot-protection",
+    "anti-crawler",
+    "typescript",
+    "react",
+    "nextjs",
+    "security",
+    "captcha-alternative",
+    "ddos-protection",
+    "rate-limiting"
+  ],
+  "author": {
+    "name": "Ajay Chauhan",
+    "email": "exactlyajay.chauhan@gmail.com",
+    "url": "https://github.com/intincrab/mayavi.git"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intincrab/mayavi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/intincrab/mayavi/issues"
+  },
+  "homepage": "https://github.com/intincrab/mayavi#readme",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "dependencies": {
-    "@types/crypto-js": "^4.2.2",
-    "crypto-js": "^4.2.0",
-    "js-sha256": "^0.11.1",
-    "next": "15.3.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "js-sha256": "^0.11.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -22,9 +57,17 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/crypto-js": "^4.2.2",
+    "crypto-js": "^4.2.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "next": "15.3.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

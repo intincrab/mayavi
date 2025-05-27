@@ -1,0 +1,36 @@
+# Development files
+src/app/
+.next/
+node_modules/
+.git/
+.vscode/
+
+# Config files
+.env*
+.air.toml
+next.config.ts
+postcss.config.mjs
+tailwind.config.js
+tsconfig.json
+tsconfig.package.json
+eslint.config.mjs
+
+# Build artifacts
+.next
+out
+build
+
+# Testing
+coverage/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Documentation (keep README.md)
+docs/
+
+# Misc
+*.log
+.DS_Store
+Thumbs.db 
