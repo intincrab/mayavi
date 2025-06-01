@@ -3,9 +3,13 @@
 A lightweight proof-of-work challenge system to protect against AI crawlers and bots. Built with TypeScript, React, and inspired by the original [Anubis project](https://github.com/TecharoHQ/anubis).
 
 [![npm version](https://badge.fury.io/js/mayavi.svg)](https://badge.fury.io/js/mayavi)
+[![npm downloads](https://img.shields.io/npm/dm/mayavi.svg)](https://npmjs.com/package/mayavi)
+[![npm package size](https://img.shields.io/bundlephobia/minzip/mayavi)](https://bundlephobia.com/package/mayavi)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub release](https://img.shields.io/github/release/intincrab/mayavi.svg)](https://github.com/intincrab/mayavi/releases)
+[![GitHub stars](https://img.shields.io/github/stars/intincrab/mayavi.svg)](https://github.com/intincrab/mayavi/stargazers)
 
-> **✅ FIXED**: All import and module issues have been resolved! The package now works correctly as an external dependency. See [Working Examples](examples/working-examples.md) for verified usage instructions.
+> **✅ NEW v1.0.2**: Auto-starting page protection with zero user interaction! No buttons to click - challenges solve automatically in background.
 
 ## 🚀 Features
 
@@ -25,6 +29,18 @@ A lightweight proof-of-work challenge system to protect against AI crawlers and 
 2. **Client-side Solving**: Browser computes SHA-256 hashes until finding one with required leading zeros
 3. **Server Verification**: Solution is verified on the server to ensure validity
 4. **Access Control**: Successful verification grants access to protected content
+
+## 📦 Quick Install
+
+```bash
+npm install mayavi@1.0.2
+```
+
+**🚀 Latest Features (v1.0.2):**
+- 🎯 **Auto-starting protection** - Challenges begin automatically on page load
+- 🛡️ **PageProtection component** - Wrap any content for instant protection  
+- 🔄 **Session management** - First-time visitors only, no repeated challenges
+- 💫 **Beautiful overlay UI** - Real-time progress with smooth animations
 
 ## 🏃‍♂️ Quick Start
 
@@ -57,6 +73,46 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) to see the demo application.
 
 ## 📖 Usage
+
+### 🆕 Auto-Starting Page Protection (v1.0.2)
+
+```tsx
+import { PageProtection } from 'mayavi';
+
+export default function MyPage() {
+  return (
+    <PageProtection 
+      difficulty={3}
+      sessionKey="page_access"
+      title="🔒 Verification Required"
+      description="Checking access permissions..."
+      onVerified={() => console.log('Access granted!')}
+    >
+      <div>Your protected content here!</div>
+    </PageProtection>
+  );
+}
+```
+
+### 🎯 Custom Protection Hook (v1.0.2)
+
+```tsx
+import { useMayaviProtection } from 'mayavi';
+
+function MyComponent() {
+  const { isVerified, reset } = useMayaviProtection({
+    sessionKey: 'my_page',
+    difficulty: 3
+  });
+  
+  return (
+    <div>
+      <p>Status: {isVerified ? '✅ Verified' : '⏳ Pending'}</p>
+      <button onClick={reset}>Reset Protection</button>
+    </div>
+  );
+}
+```
 
 ### Basic Implementation
 
@@ -221,18 +277,30 @@ For detailed usage examples and integration guides, see [USAGE.md](USAGE.md).
 
 ## 📦 NPM Package
 
-This project is available as an npm package for easy integration into your projects:
+**🎉 Available on NPM Registry**: [mayavi@1.0.2](https://www.npmjs.com/package/mayavi)
 
 ```bash
-npm install mayavi
+npm install mayavi@1.0.2
+# or
+yarn add mayavi@1.0.2  
+# or
+pnpm add mayavi@1.0.2
 ```
 
-**Package Information:**
+**📊 Package Stats:**
 - **Package Name**: `mayavi`
-- **Version**: 1.0.0
-- **Bundle Size**: Lightweight with minimal dependencies
-- **TypeScript**: Full TypeScript support included
+- **Latest Version**: `1.0.2` ✅
+- **Package Size**: 14.2 kB (compressed)
+- **Unpacked Size**: 53.5 kB  
+- **Dependencies**: Minimal (js-sha256, react)
+- **TypeScript**: Full type definitions included ✅
 - **Frameworks**: Compatible with React, Next.js, Express, Fastify, and more
+- **License**: MIT
+
+**🔗 Package Links:**
+- **NPM Registry**: [https://www.npmjs.com/package/mayavi](https://www.npmjs.com/package/mayavi)
+- **Bundle Analyzer**: [https://bundlephobia.com/package/mayavi](https://bundlephobia.com/package/mayavi)
+- **GitHub Releases**: [https://github.com/intincrab/mayavi/releases](https://github.com/intincrab/mayavi/releases)
 
 ## 📄 License
 
