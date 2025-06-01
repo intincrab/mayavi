@@ -1,9 +1,17 @@
 {
   "name": "mayavi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A lightweight proof-of-work challenge system to protect against AI crawlers and bots. Built with TypeScript and React.",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
   "files": [
     "dist",
     "README.md",

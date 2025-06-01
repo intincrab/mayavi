@@ -13,6 +13,10 @@ export {
 
 // React components
 export { default as ProofOfWorkChallenge } from './components/proof-of-work-challenge';
+export { default as PageProtection } from './components/page-protection';
+
+// Hooks for easier integration
+export { useMayaviProtection } from './lib/use-mayavi-protection';
 
 // Import types and functions for use in interfaces
 import type { Challenge, Solution } from './lib/proof-of-work';
@@ -23,12 +27,27 @@ export interface ProofOfWorkChallengeProps {
   difficulty?: number;
   onSuccess?: (challenge: Challenge, solution: Solution) => void;
   onError?: (error: string) => void;
+  onVerified?: () => void;
+  autoStart?: boolean;
+  sessionKey?: string;
+  showOnlyFirstTime?: boolean;
   className?: string;
   title?: string;
   description?: string;
-  buttonText?: string;
-  showProgress?: boolean;
-  theme?: 'light' | 'dark' | 'auto';
+}
+
+export interface PageProtectionProps {
+  children: React.ReactNode;
+  difficulty?: number;
+  sessionKey?: string;
+  title?: string;
+  description?: string;
+  className?: string;
+  onSuccess?: (challenge: Challenge, solution: Solution) => void;
+  onError?: (error: string) => void;
+  onVerified?: () => void;
+  loadingComponent?: React.ReactNode;
+  protectionMode?: 'overlay' | 'replace';
 }
 
 // Utility functions for integration

@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import ProofOfWorkChallenge from '@/components/proof-of-work-challenge';
-import { type Challenge, type Solution } from '@/lib/proof-of-work';
+import ProofOfWorkChallenge from '../components/proof-of-work-challenge';
+import { type Challenge, type Solution } from '../lib/proof-of-work';
 
 export default function Home() {
   const [isVerified, setIsVerified] = useState(false);

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifySolution, type Challenge, type Solution } from '@/lib/proof-of-work';
+import { verifySolution, type Challenge, type Solution } from '../../../lib/proof-of-work';
 
 export async function POST(request: NextRequest) {
   try {
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
 
 // Optional: GET endpoint to generate new challenges
 export async function GET() {
-  const { generateChallenge } = await import('@/lib/proof-of-work');
+  const { generateChallenge } = await import('../../../lib/proof-of-work');
   
   try {
     const challenge = generateChallenge(4); // Default difficulty
